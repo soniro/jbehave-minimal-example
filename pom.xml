@@ -3,6 +3,11 @@
     <groupId>de.soniro</groupId>
     <artifactId>jbehave-minimal-example</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <properties>
+        <jbehave.version>3.9.5</jbehave.version>
+        <jbehave-site.version>3.2</jbehave-site.version>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
@@ -12,7 +17,27 @@
         <dependency>
             <groupId>org.jbehave</groupId>
             <artifactId>jbehave-core</artifactId>
-            <version>3.9.5</version>
+            <version>${jbehave.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jbehave</groupId>
+            <artifactId>jbehave-maven-plugin</artifactId>
+            <version>${jbehave.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jbehave</groupId>
+            <artifactId>jbehave-core</artifactId>
+            <version>${jbehave.version}</version>
+            <classifier>resources</classifier>
+            <type>zip</type>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jbehave.site</groupId>
+            <artifactId>jbehave-site-resources</artifactId>
+            <version>${jbehave-site.version}</version>
+            <type>zip</type>
+            <scope>test</scope>
         </dependency>
     </dependencies>
     <build>
@@ -47,6 +72,19 @@
                         <phase>verify</phase>
                         <goals>
                             <goal>verify</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.jbehave</groupId>
+                <artifactId>jbehave-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>unpack-view-resources</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>unpack-view-resources</goal>
                         </goals>
                     </execution>
                 </executions>
