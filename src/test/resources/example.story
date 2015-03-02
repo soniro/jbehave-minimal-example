@@ -1,5 +1,8 @@
 Example Story
 
+Meta:
+@businessDomain1
+
 Scenario: successful scenario
 Given a system state
 When I do something

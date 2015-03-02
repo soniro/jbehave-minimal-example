@@ -64,6 +64,7 @@
                         <configuration>
                             <includes>
                                 <include>**/*Story.java</include>
+                                <include>**/*StoryMaps*.java</include>
                             </includes>
                         </configuration>
                     </execution>
@@ -89,6 +90,7 @@
                     </execution>
                 </executions>
             </plugin>
+
         </plugins>
     </build>
 </project>
